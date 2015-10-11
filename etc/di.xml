@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="foggyDi" xsi:type="object">Foggyline\Di\Console\Command\DiTestCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Playground -->
+
+    <type name="Foggyline\Di\Console\Command\DiTestCommand">
+        <arguments>
+            <argument name="myArg1" xsi:type="object">Foggyline\Di\Model\User</argument>
+            <argument name="myArg2" xsi:type="object">foggyVt</argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="foggyVt" type="Foggyline\Di\Model\Image">
+        <arguments>
+            <argument name="myVtArg1" xsi:type="string">myVtVal1</argument>
+            <argument name="myVtArg2" xsi:type="string">myVtVal2</argument>
+        </arguments>
+    </virtualType>
+
+</config>
